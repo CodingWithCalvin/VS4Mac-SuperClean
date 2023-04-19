@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<ExtensionModel>
+    <Extension path = "/MonoDevelop/Ide/Commands/Edit">
+        <Command id = "CodingWithCalvin.SuperClean.VS4Mac.CommandEnum.SuperClean"
+            _label = "Super Clean Solution"
+            defaultHandler = "CodingWithCalvin.SuperClean.VS4Mac.SuperCleanCommand" />
+    </Extension>
+
+    <Extension path = "/MonoDevelop/Ide/MainMenu/Build">
+        <CommandItem id="CodingWithCalvin.SuperClean.VS4Mac.CommandEnum.SuperClean" />
+    </Extension>
+</ExtensionModel>
