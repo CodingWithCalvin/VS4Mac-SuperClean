@@ -1,13 +1,29 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 
 <ExtensionModel>
-    <Extension path = "/MonoDevelop/Ide/Commands/Edit">
-        <Command id = "CodingWithCalvin.SuperClean.VS4Mac.CommandEnum.SuperClean"
+    <Extension path = "/MonoDevelop/Ide/Commands">
+        <Command id = "CodingWithCalvin.SuperClean.VS4Mac.CommandEnum.SuperCleanProject"
+            _label = "Super Clean Project"
+            defaultHandler = "CodingWithCalvin.SuperClean.VS4Mac.SuperCleanProjectCommand" />
+
+        <Command id = "CodingWithCalvin.SuperClean.VS4Mac.CommandEnum.SuperCleanSolution"
             _label = "Super Clean Solution"
-            defaultHandler = "CodingWithCalvin.SuperClean.VS4Mac.SuperCleanCommand" />
+            defaultHandler = "CodingWithCalvin.SuperClean.VS4Mac.SuperCleanSolutionCommand" />
+    </Extension>
+
+    <Extension path="/MonoDevelop/Ide/ContextMenu/ProjectPad">
+        <Condition id="ItemType" value="Project">
+            <CommandItem id="CodingWithCalvin.SuperClean.VS4Mac.CommandEnum.SuperCleanProject" />
+        </Condition>
+    </Extension>
+
+    <Extension path="/MonoDevelop/Ide/ContextMenu/ProjectPad">
+        <Condition id="ItemType" value="Solution">
+            <CommandItem id="CodingWithCalvin.SuperClean.VS4Mac.CommandEnum.SuperCleanSolution" />
+        </Condition>
     </Extension>
 
     <Extension path = "/MonoDevelop/Ide/MainMenu/Build">
-        <CommandItem id="CodingWithCalvin.SuperClean.VS4Mac.CommandEnum.SuperClean" />
+        <CommandItem id="CodingWithCalvin.SuperClean.VS4Mac.CommandEnum.SuperCleanSolution" />
     </Extension>
 </ExtensionModel>
