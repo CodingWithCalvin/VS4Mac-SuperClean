@@ -23,10 +23,12 @@ jobs:
       run: dotnet restore src/CodingWithCalvin.SuperClean.sln
 
     - name: 4. Building
-      run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool build --configuration:Release src/CodingWithCalvin.SuperClean.sln
+      run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool build --configuration:Release CodingWithCalvin.SuperClean.sln
+      working-directory: src
 
     - name: 5. Packing
-      run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool setup pack src/CodingWithCalvin.SuperClean/bin/Release/CodingWithCalvin.SuperClean.dll -d:src
+      run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool setup pack CodingWithCalvin.SuperClean/bin/Release/CodingWithCalvin.SuperClean.dll
+      working-directory: src
 
     - name: 6. Publish Artifacts
       uses: actions/upload-artifact@v4
