@@ -1,0 +1,37 @@
+name: 'Build and Deploy'
+
+on:
+  workflow_dispatch:
+      
+env:
+  VERSION: 1.0.${{ github.run_number }}
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: microsoft/setup-msbuild@v2
+    - uses: nuget/setup-nuget@v2
+    
+    - name: 1. Versioning Release
+      run: |
+        sed -i -e 's/1.0/${{ env.VERSION }}/g' ./AddinInfo.cs
+        cat ./AddinInfo.cs
+      working-directory: src/CodingWithCalvin.SuperClean
+
+    - name: 2. Restoring Packages
+      run: nuget restore src/CodingWithCalvin.SuperClean.sln
+
+    - name: 4. Building
+      run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool build --configuration:Release src/CodingWithCalvin.SuperClean.sln
+
+    - name: 5. Packing
+      run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool setup pack src/CodingWithCalvin.SuperClean/bin/Release/CodingWithCalvin.SuperClean.dll -d:src
+
+    - name: 6. Publish Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: VS4Mac-SuperClean-${{ env.VERSION }}
+        path: src/*.mpack
