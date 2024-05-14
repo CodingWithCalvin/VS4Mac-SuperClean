@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<ExtensionModel>
+    <Extension path = "/MonoDevelop/Ide/Commands">
+        <Command id = "CodingWithCalvin.SuperClean.CommandEnum.SuperCleanProject"
+            _label = "Super Clean Project"
+            defaultHandler = "CodingWithCalvin.SuperClean.SuperCleanProjectCommand" />
+
+        <Command id = "CodingWithCalvin.SuperClean.CommandEnum.SuperCleanSolution"
+            _label = "Super Clean Solution"
+            defaultHandler = "CodingWithCalvin.SuperClean.SuperCleanSolutionCommand" />
+    </Extension>
+
+    <Extension path="/MonoDevelop/Ide/ContextMenu/ProjectPad">
+        <Condition id="ItemType" value="Project">
+            <CommandItem id="CodingWithCalvin.SuperClean.CommandEnum.SuperCleanProject" />
+        </Condition>
+    </Extension>
+
+    <Extension path="/MonoDevelop/Ide/ContextMenu/ProjectPad">
+        <Condition id="ItemType" value="Solution">
+            <CommandItem id="CodingWithCalvin.SuperClean.CommandEnum.SuperCleanSolution" />
+        </Condition>
+    </Extension>
+
+    <Extension path = "/MonoDevelop/Ide/MainMenu/Build">
+        <CommandItem id="CodingWithCalvin.SuperClean.CommandEnum.SuperCleanSolution" />
+    </Extension>
+</ExtensionModel>

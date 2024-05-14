@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CodingWithCalvin.SuperClean.VS4Mac
+namespace CodingWithCalvin.SuperClean
 {
 	public enum CommandEnum
 	{

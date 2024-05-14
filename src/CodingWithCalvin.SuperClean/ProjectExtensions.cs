@@ -2,7 +2,7 @@
 using MonoDevelop.Ide;
 using MonoDevelop.Projects;
 
-namespace CodingWithCalvin.SuperClean.VS4Mac
+namespace CodingWithCalvin.SuperClean
 {
 	public static class ProjectExtensions
 	{
