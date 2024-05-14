@@ -28,8 +28,12 @@ jobs:
     - name: 5. Packing
       run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool setup pack ${{ github.workspace }}/src/CodingWithCalvin.SuperClean/bin/Release/net7.0/CodingWithCalvin.SuperClean.dll -d:${{ github.workspace }}/src
 
-    - name: 6. Publish Artifacts
-      uses: actions/upload-artifact@v4
+    - name: 6. Create Tag & Release
+      uses: ncipollo/release-action@v1.14.0
       with:
-        name: VS4Mac-SuperClean-${{ env.VERSION }}
-        path: src/*.mpack
+        artifacts: ./src/*.mpack
+        generateReleaseNotes: true
+        makeLatest: true
+        token: ${{ secrets.GH_SECRET }}
+        commit: ${{ github.sha }}
+        tag: ${{ env.VERSION }}
