@@ -12,8 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: microsoft/setup-msbuild@v2
-    - uses: nuget/setup-nuget@v2
     
     - name: 1. Versioning Release
       run: |
@@ -22,7 +20,7 @@ jobs:
       working-directory: src/CodingWithCalvin.SuperClean
 
     - name: 2. Restoring Packages
-      run: nuget restore src/CodingWithCalvin.SuperClean.sln
+      run: dotnet restore src/CodingWithCalvin.SuperClean.sln
 
     - name: 4. Building
       run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool build --configuration:Release src/CodingWithCalvin.SuperClean.sln
