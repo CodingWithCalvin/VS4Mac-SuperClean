@@ -2,8 +2,6 @@
 
 Super Clean is an extension for Visual Studio for Mac that, when triggered, completely obiterates the bin and obj directories from all projects in the solution
 
-Read more on the [release announcement I posted to my blog](https://www.codingwithcalvin.net/introducing-the-super-clean-visual-studio-for-mac-extension/)
-
 ## Installation
 
 Until this extension can be made available through public extension source channels, you will need to install it manually.
