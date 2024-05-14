@@ -26,7 +26,7 @@ jobs:
       run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool build --configuration:Release ${{ github.workspace }}/src/CodingWithCalvin.SuperClean.sln
       
     - name: 5. Packing
-      run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool setup pack CodingWithCalvin.SuperClean/bin/Release/net7.0/CodingWithCalvin.SuperClean.dll -d:${{ github.workspace }}/src
+      run: /Applications/Visual\ Studio.app/Contents/MacOS/vstool setup pack ${{ github.workspace }}/src/CodingWithCalvin.SuperClean/bin/Release/net7.0/CodingWithCalvin.SuperClean.dll -d:${{ github.workspace }}/src
 
     - name: 6. Publish Artifacts
       uses: actions/upload-artifact@v4
